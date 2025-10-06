@@ -2,7 +2,7 @@
 
 A batch pipeline to optimize historical WordPress images by converting them to modern formats (WebP, optional AVIF) and rewriting posts to reference the optimized variants.
 
-This repository contains an external worker and dashboard approach ("Approach B") that inventories referenced images, produces a dry-run savings report, converts images using Sharp/libvips, uploads optimized variants via the WordPress REST API (leveraging existing Azure offload plugins), records a reversible mapping, and provides a Next.js dashboard for monitoring and control.
+This repository contains an external worker and dashboard approach that inventories referenced images, produces a dry-run savings report, converts images using Sharp/libvips, uploads optimized variants via the WordPress REST API (leveraging existing Azure offload plugins), records a reversible mapping, and provides a Next.js dashboard for monitoring and control.
 
 ## Goals (MVP)
 
