@@ -105,13 +105,13 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 4.8 Error handling + retry (transient classification)
   - [x] 4.9 Unit tests for processor & collision logic
 
-- [ ] 5.0 Post Rewrite & Rollback Mechanisms
-  - [ ] 5.1 Implement content replacement (regex/DOM safe parse) for image src/srcset
-  - [ ] 5.2 Update featured_media when applicable
-  - [ ] 5.3 Store rewrite audit records (post_rewrites)
-  - [ ] 5.4 Implement rollback preview (diff of replacements)
-  - [ ] 5.5 Implement rollback execution script using mapping
-  - [ ] 5.6 Tests for rewrite & rollback correctness
+ - [x] 5.0 Post Rewrite & Rollback Mechanisms
+  - [x] 5.1 Implement content replacement (regex/DOM safe parse) for image src/srcset
+  - [x] 5.2 Update featured_media when applicable
+  - [x] 5.3 Store rewrite audit records (post_rewrites)
+  - [x] 5.4 Implement rollback preview (diff of replacements)
+  - [x] 5.5 Implement rollback execution script using mapping
+  - [x] 5.6 Tests for rewrite & rollback correctness
 
 - [ ] 6.0 Dashboard (Next.js) & API Integration
   - [ ] 6.1 Scaffold Next.js app structure with protected routes
