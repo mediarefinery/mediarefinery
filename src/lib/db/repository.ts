@@ -87,3 +87,28 @@ export async function upsertConfig(key: string, value: any) {
   if (error) throw error;
   return data;
 }
+
+// Post rewrites audit table helpers
+export type PostRewriteRecord = {
+  id?: number;
+  post_id: number;
+  original_url: string;
+  optimized_url: string;
+  field: string; // 'content' or 'featured_media' etc
+  created_at?: string | null;
+  metadata?: Record<string, unknown> | null;
+};
+
+export async function insertPostRewrite(row: Omit<PostRewriteRecord, 'id' | 'created_at'>) {
+  const sb = getSupabaseClient();
+  const { data, error } = await sb.from('post_rewrites').insert(row).select();
+  if (error) throw error;
+  return data as PostRewriteRecord[];
+}
+
+export async function getPostRewritesForPost(postId: number) {
+  const sb = getSupabaseClient();
+  const { data, error } = await sb.from('post_rewrites').select('*').eq('post_id', postId);
+  if (error) throw error;
+  return data as PostRewriteRecord[];
+}
