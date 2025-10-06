@@ -134,7 +134,7 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
  
 
 - [ ] 8.0 Logging, Monitoring & Verification (Sampling + Reports)
-  - [ ] 8.1 Structured logger with redaction (credentials, tokens)
+  - [x] 8.1 Structured logger with redaction (credentials, tokens)
   - [ ] 8.2 Sampling verification (5% or ≤250 threshold) HTTP checks
   - [ ] 8.3 Final summary report aggregator (optimized, skipped by reason, failures)
   - [ ] 8.4 Export mapping & summary endpoints
