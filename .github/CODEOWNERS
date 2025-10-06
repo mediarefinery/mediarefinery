@@ -1,0 +1,18 @@
+# Code owners for MediaRefinery
+# Format: <pattern> <owner>
+
+# Default owner for everything
+* @excelle @BCAndrei
+
+# Backend worker and libs
+/src/ @excelle @BCAndrei
+
+# Dashboard (Next.js)
+dashboard/ @excelle @BCAndrei
+
+# Infra and DB migrations
+supabase/ @excelle @BCAndrei
+
+# Docs and tasks
+/tasks/ @excelle @BCAndrei
+/docs/ @excelle @BCAndrei
