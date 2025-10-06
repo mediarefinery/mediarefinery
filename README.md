@@ -35,6 +35,23 @@ npm run dev
 
 Note: Worker and dashboard may run as separate processes (e.g., `npm run dev:worker` and `npm run dev:dashboard`) depending on the scaffold.
 
+Optional quick verification
+
+```bash
+# install (if not already done)
+npm install
+
+# typecheck (will use placeholders if no source yet)
+npx tsc --noEmit
+
+# run lint and format checks
+npm run lint || true
+npm run format
+
+# run tests (no tests yet)
+npm test
+```
+
 ## Environment Variables
 
 Create a `.env` file with at least the following keys (use `.env.example` for guidance):

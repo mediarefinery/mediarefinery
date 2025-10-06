@@ -74,12 +74,12 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 1.8 Add Git hooks / lint-staged (optional) for formatting enforcement
 
 - [ ] 2.0 Data Layer & Supabase Schema Implementation
-  - [ ] 2.1 Draft SQL migrations for `media_inventory`, `media_optimization`, `post_rewrites`, `config`
-  - [ ] 2.2 Add indices (hash, status, author/date composite for filtering performance)
-  - [ ] 2.3 Implement DB client wrapper with typed queries
-  - [ ] 2.4 Implement repository functions (CRUD for inventory, optimization updates)
-  - [ ] 2.5 Seed dev database with sample records for local testing
-  - [ ] 2.6 Add unit tests for DB layer (using test transaction + rollback)
+  - [x] 2.1 Draft SQL migrations for `media_inventory`, `media_optimization`, `post_rewrites`, `config`
+  - [x] 2.2 Add indices (hash, status, author/date composite for filtering performance)
+  - [x] 2.3 Implement DB client wrapper with typed queries
+  - [x] 2.4 Implement repository functions (CRUD for inventory, optimization updates)
+  - [x] 2.5 Seed dev database with sample records for local testing
+  - [x] 2.6 Add unit tests for DB layer (using test transaction + rollback)
 
 - [ ] 3.0 Media Inventory & Dry-Run Reporting Pipeline
   - [ ] 3.1 Implement WordPress post fetch (pagination, published only)
