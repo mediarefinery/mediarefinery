@@ -1,0 +1,45 @@
+{
+  "name": "mediarefinery",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Batch pipeline to optimize historical WordPress images (MediaRefinery)",
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "dashboard",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:worker\" \"npm run dev:dashboard\"",
+    "dev:worker": "echo \"Start worker in ./src or packages/worker (placeholder)\"",
+    "dev:dashboard": "echo \"Start dashboard in ./dashboard (placeholder)\"",
+    "build": "echo \"Build worker and dashboard (placeholder)\"",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings=0 || true",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit || true",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx,json,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "eslint": "^8.40.0",
+    "husky": "^8.0.0",
+    "jest": "^29.6.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.3.0",
+    "lint-staged": "^13.2.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0"
+  }
+}

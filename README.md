@@ -5,6 +5,7 @@ A batch pipeline to optimize historical WordPress images by converting them to m
 This repository contains an external worker and dashboard approach ("Approach B") that inventories referenced images, produces a dry-run savings report, converts images using Sharp/libvips, uploads optimized variants via the WordPress REST API (leveraging existing Azure offload plugins), records a reversible mapping, and provides a Next.js dashboard for monitoring and control.
 
 ## Goals (MVP)
+
 - Dry-run sizing and savings report
 - Convert historical JPEG/PNG to WebP using new filenames (`<basename>__opt.webp`)
 - Optional AVIF generation behind a toggle (code present, off by default)
@@ -13,6 +14,7 @@ This repository contains an external worker and dashboard approach ("Approach B"
 - Phased rollout support (author/date filters) and low-traffic scheduling
 
 ## Quickstart (local dev)
+
 1. Copy env example
 
 ```bash
@@ -34,6 +36,7 @@ npm run dev
 Note: Worker and dashboard may run as separate processes (e.g., `npm run dev:worker` and `npm run dev:dashboard`) depending on the scaffold.
 
 ## Environment Variables
+
 Create a `.env` file with at least the following keys (use `.env.example` for guidance):
 
 - `WP_BASE_URL` - WordPress site base URL (no trailing slash)
@@ -53,19 +56,23 @@ Create a `.env` file with at least the following keys (use `.env.example` for gu
 - `SCHEDULE_END_HHMM` - optional end time (24h site timezone)
 
 ## Development Notes
+
 - Tests: `npx jest`
 - Linting: `npm run lint`
 - Format: `npm run format`
 
 ## Next steps
+
 - Scaffold project (package.json, tsconfig, basic source layout)
 - Implement Supabase schema and migrations
 - Build inventory and dry-run pipeline
 
 ## Operational notes
+
 - The default approach writes new filenames and does not delete original files.
 - AVIF is off by default to avoid unintentional rollouts; enabling requires operator confirmation.
 - Dry-run should be executed and reviewed before any rewrite/upsert operations.
 
 ## Contact
+
 Project owner: TBD
