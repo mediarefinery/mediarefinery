@@ -80,3 +80,10 @@ export async function getOptimizationsByInventoryId(inventoryId: number) {
   if (error) throw error;
   return data as OptimizationRecord[];
 }
+
+export async function upsertConfig(key: string, value: any) {
+  const sb = getSupabaseClient();
+  const { data, error } = await sb.from('config').upsert({ key, value }, { onConflict: 'key' }).select();
+  if (error) throw error;
+  return data;
+}
