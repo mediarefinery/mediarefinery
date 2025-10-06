@@ -82,27 +82,28 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 2.6 Add unit tests for DB layer (using test transaction + rollback)
 
 - [ ] 3.0 Media Inventory & Dry-Run Reporting Pipeline
-  - [ ] 3.1 Implement WordPress post fetch (pagination, published only)
-  - [ ] 3.2 Extract image references from post content (HTML parse) & featured images
-  - [ ] 3.3 Resolve attachment IDs & metadata for each URL
-  - [ ] 3.4 Compute SHA-256 hash (download stream or HEAD + conditional full fetch)
-  - [ ] 3.5 Apply author/date filters (FR-41) pre-queue population
-  - [ ] 3.6 Deduplicate by hash & persist inventory with initial status=PENDING
-  - [ ] 3.7 Implement dry-run estimator (expected WebP size heuristics)
-  - [ ] 3.8 Aggregate dry-run totals & store snapshot
-  - [ ] 3.9 Expose API endpoint for dry-run trigger & retrieval
-  - [ ] 3.10 Add tests for inventory + dry-run logic
+ - [x] 3.0 Media Inventory & Dry-Run Reporting Pipeline
+  - [x] 3.1 Implement WordPress post fetch (pagination, published only)
+  - [x] 3.2 Extract image references from post content (HTML parse) & featured images
+  - [x] 3.3 Resolve attachment IDs & metadata for each URL
+  - [x] 3.4 Compute SHA-256 hash (download stream or HEAD + conditional full fetch)
+  - [x] 3.5 Apply author/date filters (FR-41) pre-queue population
+  - [x] 3.6 Deduplicate by hash & persist inventory with initial status=PENDING
+  - [x] 3.7 Implement dry-run estimator (expected WebP size heuristics)
+  - [x] 3.8 Aggregate dry-run totals & store snapshot
+  - [x] 3.9 Expose API endpoint for dry-run trigger & retrieval
+  - [x] 3.10 Add tests for inventory + dry-run logic
 
 - [ ] 4.0 Optimization & Conversion Engine (WebP + AVIF Flag)
-  - [ ] 4.1 Implement Sharp-based conversion (downscale >2560px, size-only small graphics quality=85 else 75)
-  - [ ] 4.2 Preserve / strip ICC per policy (≤2KB preserved)
-  - [ ] 4.3 Implement AVIF optional generation (flag check)
-  - [ ] 4.4 Filename generation `<basename>__opt.webp` + collision handling
-  - [ ] 4.5 Upload optimized image via WordPress media endpoint
-  - [ ] 4.6 Persist optimization record & byte savings
-  - [ ] 4.7 Mark inventory status=OPTIMIZED or SKIPPED with reason
-  - [ ] 4.8 Error handling + retry (transient classification)
-  - [ ] 4.9 Unit tests for processor & collision logic
+  - [x] 4.1 Implement Sharp-based conversion (downscale >2560px, size-only small graphics quality=85 else 75)
+  - [x] 4.2 Preserve / strip ICC per policy (≤2KB preserved)
+  - [x] 4.3 Implement AVIF optional generation (flag check)
+  - [x] 4.4 Filename generation `<basename>__opt.webp` + collision handling
+  - [x] 4.5 Upload optimized image via WordPress media endpoint
+  - [x] 4.6 Persist optimization record & byte savings
+  - [x] 4.7 Mark inventory status=OPTIMIZED or SKIPPED with reason
+  - [x] 4.8 Error handling + retry (transient classification)
+  - [x] 4.9 Unit tests for processor & collision logic
 
 - [ ] 5.0 Post Rewrite & Rollback Mechanisms
   - [ ] 5.1 Implement content replacement (regex/DOM safe parse) for image src/srcset
