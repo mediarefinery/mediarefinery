@@ -6,6 +6,10 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
 
 - `package.json` - Node/Next.js project dependencies and scripts.
 - `README.md` - Project overview and setup instructions.
+ - `src/` - Application source code (placeholder added)
+ - `dashboard/` - Next.js dashboard app (placeholder added)
+ - `tests/` - Unit and integration tests (placeholder added)
+ - `supabase/` - Supabase migrations and schema (placeholder added)
 - `src/config/index.ts` - Centralized configuration loader (env + defaults like quality, width, concurrency).
 - `src/config/schedule.ts` - Scheduling window evaluation utilities.
 - `src/lib/wordpress/client.ts` - WordPress REST API client wrapper.
@@ -57,8 +61,8 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
 
 - [ ] 1.0 Architecture & Environment Setup
 	- [ ] 1.1 Initialize repository structure (src/, dashboard/, tests/, supabase/)
-	- [ ] 1.2 Create `package.json` with scripts (dev, build, test, lint, typecheck)
-	- [ ] 1.3 Add TypeScript config (root + dashboard tsconfigs)
+	- [x] 1.2 Create `package.json` with scripts (dev, build, test, lint, typecheck)
+	- [x] 1.3 Add TypeScript config (root + dashboard tsconfigs)
 	- [ ] 1.4 Add base ESLint + Prettier configuration
 	- [ ] 1.5 Create `.env.example` with all required variables (WP creds, SUPABASE, quality, schedule)
 	- [ ] 1.6 Implement configuration loader with schema validation (e.g., Zod)
