@@ -12,9 +12,12 @@ export type WpPost = {
   [k: string]: any;
 };
 
-export async function* fetchPublishedPosts(opts?: { perPage?: number; maxPages?: number }) {
+export async function* fetchPublishedPosts(opts?: { perPage?: number; maxPages?: number; author?: number | string; after?: string; before?: string }) {
   const perPage = opts?.perPage ?? 100;
   const maxPages = opts?.maxPages ?? Infinity;
+  const author = opts?.author;
+  const after = opts?.after;
+  const before = opts?.before;
   const client = createWpClient();
 
   let page = 1;
@@ -26,6 +29,9 @@ export async function* fetchPublishedPosts(opts?: { perPage?: number; maxPages?:
       page: String(page),
       _embed: 'false',
     };
+    if (author !== undefined) params.author = String(author);
+    if (after) params.after = after;
+    if (before) params.before = before;
 
     const res = await client.get(path, params);
     if (res.status === 404) return;
