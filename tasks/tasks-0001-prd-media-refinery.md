@@ -6,10 +6,14 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
 
 - `package.json` - Node/Next.js project dependencies and scripts.
 - `README.md` - Project overview and setup instructions.
- - `src/` - Application source code (placeholder added)
- - `dashboard/` - Next.js dashboard app (placeholder added)
- - `tests/` - Unit and integration tests (placeholder added)
- - `supabase/` - Supabase migrations and schema (placeholder added)
+- `src/` - Application source code (placeholder added)
+- `dashboard/` - Next.js dashboard app (placeholder added)
+- `tests/` - Unit and integration tests (placeholder added)
+- `supabase/` - Supabase migrations and schema (placeholder added)
+ - `.eslintrc.json` - ESLint configuration
+ - `.prettierrc` - Prettier configuration
+ - `.env.example` - Example environment variables
+ - `src/config/index.ts` - Environment loader & schema validation (Zod)
 - `src/config/index.ts` - Centralized configuration loader (env + defaults like quality, width, concurrency).
 - `src/config/schedule.ts` - Scheduling window evaluation utilities.
 - `src/lib/wordpress/client.ts` - WordPress REST API client wrapper.
@@ -60,96 +64,98 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
 ## Tasks
 
 - [ ] 1.0 Architecture & Environment Setup
-	- [ ] 1.1 Initialize repository structure (src/, dashboard/, tests/, supabase/)
-	- [x] 1.2 Create `package.json` with scripts (dev, build, test, lint, typecheck)
-	- [x] 1.3 Add TypeScript config (root + dashboard tsconfigs)
-	- [ ] 1.4 Add base ESLint + Prettier configuration
-	- [ ] 1.5 Create `.env.example` with all required variables (WP creds, SUPABASE, quality, schedule)
-	- [ ] 1.6 Implement configuration loader with schema validation (e.g., Zod)
-	- [ ] 1.7 Document setup steps in `README.md`
-	- [ ] 1.8 Add Git hooks / lint-staged (optional) for formatting enforcement
+  - [ ] 1.1 Initialize repository structure (src/, dashboard/, tests/, supabase/)
+  - [x] 1.2 Create `package.json` with scripts (dev, build, test, lint, typecheck)
+  - [x] 1.3 Add TypeScript config (root + dashboard tsconfigs)
+  - [x] 1.4 Add base ESLint + Prettier configuration
+  - [x] 1.5 Create `.env.example` with all required variables (WP creds, SUPABASE, quality, schedule)
+  - [x] 1.6 Implement configuration loader with schema validation (e.g., Zod)
+  - [ ] 1.7 Document setup steps in `README.md`
+  - [x] 1.8 Add Git hooks / lint-staged (optional) for formatting enforcement
 
 - [ ] 2.0 Data Layer & Supabase Schema Implementation
-	- [ ] 2.1 Draft SQL migrations for `media_inventory`, `media_optimization`, `post_rewrites`, `config`
-	- [ ] 2.2 Add indices (hash, status, author/date composite for filtering performance)
-	- [ ] 2.3 Implement DB client wrapper with typed queries
-	- [ ] 2.4 Implement repository functions (CRUD for inventory, optimization updates)
-	- [ ] 2.5 Seed dev database with sample records for local testing
-	- [ ] 2.6 Add unit tests for DB layer (using test transaction + rollback)
+  - [ ] 2.1 Draft SQL migrations for `media_inventory`, `media_optimization`, `post_rewrites`, `config`
+  - [ ] 2.2 Add indices (hash, status, author/date composite for filtering performance)
+  - [ ] 2.3 Implement DB client wrapper with typed queries
+  - [ ] 2.4 Implement repository functions (CRUD for inventory, optimization updates)
+  - [ ] 2.5 Seed dev database with sample records for local testing
+  - [ ] 2.6 Add unit tests for DB layer (using test transaction + rollback)
 
 - [ ] 3.0 Media Inventory & Dry-Run Reporting Pipeline
-	- [ ] 3.1 Implement WordPress post fetch (pagination, published only)
-	- [ ] 3.2 Extract image references from post content (HTML parse) & featured images
-	- [ ] 3.3 Resolve attachment IDs & metadata for each URL
-	- [ ] 3.4 Compute SHA-256 hash (download stream or HEAD + conditional full fetch)
-	- [ ] 3.5 Apply author/date filters (FR-41) pre-queue population
-	- [ ] 3.6 Deduplicate by hash & persist inventory with initial status=PENDING
-	- [ ] 3.7 Implement dry-run estimator (expected WebP size heuristics)
-	- [ ] 3.8 Aggregate dry-run totals & store snapshot
-	- [ ] 3.9 Expose API endpoint for dry-run trigger & retrieval
-	- [ ] 3.10 Add tests for inventory + dry-run logic
+  - [ ] 3.1 Implement WordPress post fetch (pagination, published only)
+  - [ ] 3.2 Extract image references from post content (HTML parse) & featured images
+  - [ ] 3.3 Resolve attachment IDs & metadata for each URL
+  - [ ] 3.4 Compute SHA-256 hash (download stream or HEAD + conditional full fetch)
+  - [ ] 3.5 Apply author/date filters (FR-41) pre-queue population
+  - [ ] 3.6 Deduplicate by hash & persist inventory with initial status=PENDING
+  - [ ] 3.7 Implement dry-run estimator (expected WebP size heuristics)
+  - [ ] 3.8 Aggregate dry-run totals & store snapshot
+  - [ ] 3.9 Expose API endpoint for dry-run trigger & retrieval
+  - [ ] 3.10 Add tests for inventory + dry-run logic
 
 - [ ] 4.0 Optimization & Conversion Engine (WebP + AVIF Flag)
-	- [ ] 4.1 Implement Sharp-based conversion (downscale >2560px, size-only small graphics quality=85 else 75)
-	- [ ] 4.2 Preserve / strip ICC per policy (≤2KB preserved)
-	- [ ] 4.3 Implement AVIF optional generation (flag check)
-	- [ ] 4.4 Filename generation `<basename>__opt.webp` + collision handling
-	- [ ] 4.5 Upload optimized image via WordPress media endpoint
-	- [ ] 4.6 Persist optimization record & byte savings
-	- [ ] 4.7 Mark inventory status=OPTIMIZED or SKIPPED with reason
-	- [ ] 4.8 Error handling + retry (transient classification)
-	- [ ] 4.9 Unit tests for processor & collision logic
+  - [ ] 4.1 Implement Sharp-based conversion (downscale >2560px, size-only small graphics quality=85 else 75)
+  - [ ] 4.2 Preserve / strip ICC per policy (≤2KB preserved)
+  - [ ] 4.3 Implement AVIF optional generation (flag check)
+  - [ ] 4.4 Filename generation `<basename>__opt.webp` + collision handling
+  - [ ] 4.5 Upload optimized image via WordPress media endpoint
+  - [ ] 4.6 Persist optimization record & byte savings
+  - [ ] 4.7 Mark inventory status=OPTIMIZED or SKIPPED with reason
+  - [ ] 4.8 Error handling + retry (transient classification)
+  - [ ] 4.9 Unit tests for processor & collision logic
 
 - [ ] 5.0 Post Rewrite & Rollback Mechanisms
-	- [ ] 5.1 Implement content replacement (regex/DOM safe parse) for image src/srcset
-	- [ ] 5.2 Update featured_media when applicable
-	- [ ] 5.3 Store rewrite audit records (post_rewrites)
-	- [ ] 5.4 Implement rollback preview (diff of replacements)
-	- [ ] 5.5 Implement rollback execution script using mapping
-	- [ ] 5.6 Tests for rewrite & rollback correctness
+  - [ ] 5.1 Implement content replacement (regex/DOM safe parse) for image src/srcset
+  - [ ] 5.2 Update featured_media when applicable
+  - [ ] 5.3 Store rewrite audit records (post_rewrites)
+  - [ ] 5.4 Implement rollback preview (diff of replacements)
+  - [ ] 5.5 Implement rollback execution script using mapping
+  - [ ] 5.6 Tests for rewrite & rollback correctness
 
 - [ ] 6.0 Dashboard (Next.js) & API Integration
-	- [ ] 6.1 Scaffold Next.js app structure with protected routes
-	- [ ] 6.2 Implement auth guard (Supabase session / server component check)
-	- [ ] 6.3 Build progress cards (counts, bytes saved, % complete)
-	- [ ] 6.4 Implement filter bar (author/date, status)
-	- [ ] 6.5 Implement image table (pagination, sorting, status badges)
-	- [ ] 6.6 Dry-run report page (charts + export buttons CSV/JSON)
-	- [ ] 6.7 Image detail page (original vs optimized metadata & bytes)
-	- [ ] 6.8 Settings page (toggle AVIF, schedule window, concurrency cap)
-	- [ ] 6.9 API client wrappers with error normalization
-	- [ ] 6.10 Basic accessibility & responsive checks
+  - [ ] 6.1 Scaffold Next.js app structure with protected routes
+  - [ ] 6.2 Implement auth guard (Supabase session / server component check)
+  - [ ] 6.3 Build progress cards (counts, bytes saved, % complete)
+  - [ ] 6.4 Implement filter bar (author/date, status)
+  - [ ] 6.5 Implement image table (pagination, sorting, status badges)
+  - [ ] 6.6 Dry-run report page (charts + export buttons CSV/JSON)
+  - [ ] 6.7 Image detail page (original vs optimized metadata & bytes)
+  - [ ] 6.8 Settings page (toggle AVIF, schedule window, concurrency cap)
+  - [ ] 6.9 API client wrappers with error normalization
+  - [ ] 6.10 Basic accessibility & responsive checks
 
 - [ ] 7.0 Concurrency, Scheduling & Adaptive Controls
-	- [ ] 7.1 Implement adaptive scaling metric collector (success/error ring buffer)
-	- [ ] 7.2 Scale up logic (<1% errors) & revert logic (>3% transient errors)
-	- [ ] 7.3 Scheduling window evaluator (site timezone) gating job start
-	- [ ] 7.4 Configuration overrides to disable adaptive behavior
-	- [ ] 7.5 Tests covering scaling edge cases & pause/resume
+  - [ ] 7.1 Implement adaptive scaling metric collector (success/error ring buffer)
+  - [ ] 7.2 Scale up logic (<1% errors) & revert logic (>3% transient errors)
+  - [ ] 7.3 Scheduling window evaluator (site timezone) gating job start
+  - [ ] 7.4 Configuration overrides to disable adaptive behavior
+  - [ ] 7.5 Tests covering scaling edge cases & pause/resume
 
 - [ ] 8.0 Logging, Monitoring & Verification (Sampling + Reports)
-	- [ ] 8.1 Structured logger with redaction (credentials, tokens)
-	- [ ] 8.2 Sampling verification (5% or ≤250 threshold) HTTP checks
-	- [ ] 8.3 Final summary report aggregator (optimized, skipped by reason, failures)
-	- [ ] 8.4 Export mapping & summary endpoints
-	- [ ] 8.5 Dashboard surfacing of verification results
-	- [ ] 8.6 Tests for sampler and summary logic
+  - [ ] 8.1 Structured logger with redaction (credentials, tokens)
+  - [ ] 8.2 Sampling verification (5% or ≤250 threshold) HTTP checks
+  - [ ] 8.3 Final summary report aggregator (optimized, skipped by reason, failures)
+  - [ ] 8.4 Export mapping & summary endpoints
+  - [ ] 8.5 Dashboard surfacing of verification results
+  - [ ] 8.6 Tests for sampler and summary logic
 
 - [ ] 9.0 Security, Configuration & Secrets Management
-	- [ ] 9.1 Implement secret loading (no exposure on client)
-	- [ ] 9.2 Ensure WP credentials only used server-side
-	- [ ] 9.3 Role-based dashboard access (admin group check)
-	- [ ] 9.4 Redaction middleware for logs
-	- [ ] 9.5 Config validation tests (invalid env scenarios)
+  - [ ] 9.1 Implement secret loading (no exposure on client)
+  - [ ] 9.2 Ensure WP credentials only used server-side
+  - [ ] 9.3 Role-based dashboard access (admin group check)
+  - [ ] 9.4 Redaction middleware for logs
+  - [ ] 9.5 Config validation tests (invalid env scenarios)
 
 - [ ] 10.0 QA, Validation & Launch Readiness
-	- [ ] 10.1 Seed staging environment & perform full dry-run
-	- [ ] 10.2 Execute limited-scope (one author/date slice) optimization test
-	- [ ] 10.3 Perform rollback simulation & verify integrity
-	- [ ] 10.4 Load/performance spot test (concurrency=3→5 ramp)
-	- [ ] 10.5 Security review (secrets, logs, access)
-	- [ ] 10.6 Documentation: operations guide + rollback guide
-	- [ ] 10.7 Final acceptance checklist (FR traceability matrix)
-	- [ ] 10.8 Post-launch monitoring plan (24h heightened watch)
+  - [ ] 10.1 Seed staging environment & perform full dry-run
+  - [ ] 10.2 Execute limited-scope (one author/date slice) optimization test
+  - [ ] 10.3 Perform rollback simulation & verify integrity
+  - [ ] 10.4 Load/performance spot test (concurrency=3→5 ramp)
+  - [ ] 10.5 Security review (secrets, logs, access)
+  - [ ] 10.6 Documentation: operations guide + rollback guide
+  - [ ] 10.7 Final acceptance checklist (FR traceability matrix)
+  - [ ] 10.8 Post-launch monitoring plan (24h heightened watch)
 
-``` 
+```
+
+```
