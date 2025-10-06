@@ -74,8 +74,8 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 1.8 Add Git hooks / lint-staged (optional) for formatting enforcement
 
 - [ ] 2.0 Data Layer & Supabase Schema Implementation
-  - [ ] 2.1 Draft SQL migrations for `media_inventory`, `media_optimization`, `post_rewrites`, `config`
-  - [ ] 2.2 Add indices (hash, status, author/date composite for filtering performance)
+  - [x] 2.1 Draft SQL migrations for `media_inventory`, `media_optimization`, `post_rewrites`, `config`
+  - [x] 2.2 Add indices (hash, status, author/date composite for filtering performance)
   - [ ] 2.3 Implement DB client wrapper with typed queries
   - [ ] 2.4 Implement repository functions (CRUD for inventory, optimization updates)
   - [ ] 2.5 Seed dev database with sample records for local testing
