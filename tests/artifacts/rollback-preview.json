@@ -1,0 +1,14 @@
+[
+  {
+    "postId": 987,
+    "original": "<p><img src=\"https://example.com/wp-content/uploads/2020/01/sample-photo__opt.webp\"></p>",
+    "rewritten": "<html><head></head><body><p><img src=\"https://example.com/wp-content/uploads/2020/01/sample-photo__opt.webp\"></p></body></html>",
+    "restored": "<html><head></head><body><p><img src=\"https://example.com/wp-content/uploads/2020/01/sample-photo__opt.webp\"></p></body></html>"
+  },
+  {
+    "postId": 987,
+    "original": "<p><img src=\"https://example.com/wp-content/uploads/2020/01/sample-photo__opt.webp\"></p>",
+    "rewritten": "<html><head></head><body><p><img src=\"https://example.com/wp-content/uploads/2020/01/sample-photo__opt.webp\"></p></body></html>",
+    "restored": "<html><head></head><body><p><img src=\"https://example.com/wp-content/uploads/2020/01/sample-photo__opt.webp\"></p></body></html>"
+  }
+]
