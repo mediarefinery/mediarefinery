@@ -26,8 +26,12 @@ function isObject(o: any) {
 }
 
 // Deep copy with redaction; safe for circular refs
-function redactValue(input: any): any {
+export function redact(input: any, extraKeys?: string[]): any {
   const seen = new WeakSet()
+  const keysSet = new Set<string>([...Array.from(redactKeys)])
+  if (Array.isArray(extraKeys)) {
+    for (const k of extraKeys) keysSet.add(k.toLowerCase())
+  }
 
   function _rec(v: any): any {
     if (!isObject(v)) return v
@@ -39,7 +43,7 @@ function redactValue(input: any): any {
     const out: Record<string, any> = {}
     for (const [k, val] of Object.entries(v)) {
       try {
-        if (redactKeys.has(k.toLowerCase())) {
+        if (keysSet.has(k.toLowerCase())) {
           out[k] = '<REDACTED>'
         } else {
           out[k] = _rec(val)
@@ -70,7 +74,7 @@ function log(level: LogLevel, message: string, context?: any) {
       level,
       message,
     }
-    if (context !== undefined) payload.context = redactValue(context)
+    if (context !== undefined) payload.context = redact(context)
     const line = JSON.stringify(payload)
     // Write to stdout so logs can be captured as JSON lines
     console.log(line)

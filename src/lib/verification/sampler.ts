@@ -24,13 +24,13 @@ export function pickSample<T extends SampleItem>(items: T[], percent = 5, cap = 
   if (!items || items.length === 0) return []
   const p = clamp(percent, 0, 100)
   const sampleCount = Math.min(cap, Math.max(1, Math.floor(items.length * (p / 100))))
-  // Random sample using Fisher-Yates shuffle variant: pick sampleCount
+  // Random sample using Fisher-Yates shuffle: shuffle then take first sampleCount
   const arr = items.slice()
-  for (let i = arr.length - 1; i > 0 && arr.length - i <= sampleCount; i--) {
+  for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     const tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp
   }
-  return arr.slice(0, sampleCount)
+  return arr.slice(0, Math.min(sampleCount, arr.length))
 }
 
 async function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
