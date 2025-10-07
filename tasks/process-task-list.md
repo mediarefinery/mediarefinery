@@ -47,3 +47,34 @@ When working with task lists, the AI must:
 4. Keep "Relevant Files" accurate and up to date.
 5. Before starting work, check which sub‑task is next.
 6. After implementing a sub‑task, update the file and then pause for user approval.
+
+## Recent QA status (10.0 series)
+
+Note: per the PRD runbook, QA subtasks 10.1–10.4 must be tracked and only marked complete after their tests pass and artifacts are produced.
+
+- 10.1 Seed staging environment & perform full dry-run: PENDING
+   - Reason: `artifacts/dry-run.json` exists but is empty (no images). Staging seed must be confirmed and dry-run re-run to populate results.
+- 10.2 Execute limited-scope optimization test: DONE
+   - Evidence: `tests/integration/limited-optimize.test.ts` executed successfully; artifact: `tests/artifacts/limited-optimize.json` (may be empty if no pending items).
+- 10.3 Perform rollback simulation & verify integrity: DONE
+   - Evidence: `tests/integration/rollback-simulate.test.ts` executed; artifact: `tests/artifacts/rollback-preview.json`.
+- 10.4 Load/performance spot test (concurrency=3→5 ramp): DONE
+   - Evidence: `tests/integration/load-spot.test.ts` executed; artifact: `tests/artifacts/load-spot.json` (contains throughput/latency/metrics).
+
+Follow-up: once 10.1 is validated with a populated `artifacts/dry-run.json`, mark 10.1 as complete and then proceed to 10.5.
+
+## 10.5 / 10.6 Next steps and artifacts
+
+To complete 10.5 (Security review):
+- Run through `docs/security-review.md` and check each item.
+- Produce a short summary in this doc with any remediation steps and `npm audit` output.
+- Required artifacts: `docs/security-review.md` updated, `npm audit` or SCA report attached.
+
+Status: `npm audit --audit-level=high` was executed. Results: 2 moderate vulnerabilities (lint-staged -> micromatch ReDoS). No high or critical vulnerabilities found. Recommendation: upgrade `lint-staged`/`micromatch` to patched versions or run `npm audit fix` where safe, then re-run tests and update `docs/security-review.md` with remediation notes.
+
+To complete 10.6 (Operations & rollback guide):
+- Review and, if needed, adapt `docs/operations-rollback-guide.md` to your production ops processes.
+- Ensure `artifacts/dry-run.json` is populated and `tests/artifacts/rollback-preview.json` exists from staging.
+- Required artifacts: updated `docs/operations-rollback-guide.md`, populated `artifacts/dry-run.json`.
+
+When both documents are updated and artifacts exist, mark 10.5 and 10.6 as done in the PRD tasks file and commit per the completion protocol.

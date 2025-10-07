@@ -14,8 +14,9 @@ const EnvSchema = z.object({
   AVIF_ENABLED: z.string().optional(),
   CONCURRENCY_BASE: z.string().default('3'),
   CONCURRENCY_MAX: z.string().default('5'),
-  SCHEDULE_START_HHMM: z.string().optional(),
-  SCHEDULE_END_HHMM: z.string().optional(),
+  // Accept HHMM or HH:MM formats (24-hour). e.g. '0900' or '09:00'
+  SCHEDULE_START_HHMM: z.string().regex(/^(?:[01]\d|2[0-3]):?[0-5]\d$/).optional(),
+  SCHEDULE_END_HHMM: z.string().regex(/^(?:[01]\d|2[0-3]):?[0-5]\d$/).optional(),
 });
 
 function parseEnv(env: NodeJS.ProcessEnv) {
