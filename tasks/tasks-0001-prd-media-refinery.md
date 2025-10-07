@@ -139,7 +139,9 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 8.3 Final summary report aggregator (optimized, skipped by reason, failures)
   - [x] 8.4 Export mapping & summary endpoints
   - [x] 8.5 Dashboard surfacing of verification results
-  - [ ] 8.6 Tests for sampler and summary logic
+  - [x] 8.6 Tests for sampler and summary logic
+
+ - [x] 8.0 Logging, Monitoring & Verification (Sampling + Reports)
 
 - [ ] 9.0 Security, Configuration & Secrets Management
   - [ ] 9.1 Implement secret loading (no exposure on client)
