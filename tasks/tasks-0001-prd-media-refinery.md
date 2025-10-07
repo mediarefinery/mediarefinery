@@ -131,13 +131,14 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [ ] 7.3 Scheduling window evaluator (site timezone) gating job start
   - [ ] 7.4 Configuration overrides to disable adaptive behavior
   - [ ] 7.5 Tests covering scaling edge cases & pause/resume
+ 
 
 - [ ] 8.0 Logging, Monitoring & Verification (Sampling + Reports)
-  - [ ] 8.1 Structured logger with redaction (credentials, tokens)
-  - [ ] 8.2 Sampling verification (5% or ≤250 threshold) HTTP checks
-  - [ ] 8.3 Final summary report aggregator (optimized, skipped by reason, failures)
-  - [ ] 8.4 Export mapping & summary endpoints
-  - [ ] 8.5 Dashboard surfacing of verification results
+  - [x] 8.1 Structured logger with redaction (credentials, tokens)
+  - [x] 8.2 Sampling verification (5% or ≤250 threshold) HTTP checks
+  - [x] 8.3 Final summary report aggregator (optimized, skipped by reason, failures)
+  - [x] 8.4 Export mapping & summary endpoints
+  - [x] 8.5 Dashboard surfacing of verification results
   - [ ] 8.6 Tests for sampler and summary logic
 
 - [ ] 9.0 Security, Configuration & Secrets Management
