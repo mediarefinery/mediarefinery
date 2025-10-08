@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgressCards from '../../../components/ProgressCards';
+import ProgressCards from '../components/ProgressCards';
 
 export default function Page() {
   return (
