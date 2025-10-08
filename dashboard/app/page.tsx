@@ -1,5 +1,6 @@
-import React from 'react';
-import ProgressCards from '../components/ProgressCards';
+"use client"
+import React from 'react'
+import ProgressCards from '../components/ProgressCards'
 
 export default function Page() {
   return (
@@ -10,5 +11,5 @@ export default function Page() {
         <p>Placeholder for recent runs and summaries.</p>
       </section>
     </div>
-  );
+  )
 }
