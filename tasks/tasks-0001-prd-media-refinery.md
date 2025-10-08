@@ -127,6 +127,7 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
 
 - [ ] 6.0 Dashboard (Next.js) & API Integration
   - [ ] 6.1 Implement Supabase authentication with session management
+  - [x] 6.1 Implement Supabase authentication with session management
   - [ ] 6.2 Create protected routes with role-based access (admin group)
   - [ ] 6.3 Build main dashboard page with real-time progress cards (optimized/skipped/bytes saved counts)
   - [ ] 6.4 Implement image inventory table with pagination, sorting, and status filtering
