@@ -38,16 +38,21 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
 - `src/lib/filters/scope.ts` - Author/date filtering.
 - `src/server/routes/*.ts` - Minimal backend API endpoints (status, trigger dry-run, trigger optimize, export mapping).
 - `src/server/middleware/auth.ts` - Auth guard for internal API endpoints.
-- `dashboard/app/(pages)/layout.tsx` - Dashboard layout.
-- `dashboard/app/(pages)/index/page.tsx` - Main progress view.
-- `dashboard/app/(pages)/dry-run/page.tsx` - Dry-run report page.
-- `dashboard/app/(pages)/image/[id]/page.tsx` - Image detail view.
-- `dashboard/app/(pages)/settings/page.tsx` - Configuration & scheduling UI.
-- `dashboard/components/ProgressCards.tsx` - Summary metrics component.
-- `dashboard/components/FilterBar.tsx` - Author/date & status filters.
-- `dashboard/components/ImageTable.tsx` - Paginated table.
-- `dashboard/components/QualityLegend.tsx` - Explains quality profiles.
-- `dashboard/lib/api.ts` - Client fetch wrappers.
+- `dashboard/app/layout.tsx` - Root layout with header and navigation
+- `dashboard/app/page.tsx` - Main dashboard page with progress cards and actions
+- `dashboard/app/dry-run/page.tsx` - Dry-run report page with stats and exports
+- `dashboard/app/image/[id]/page.tsx` - Image detail view
+- `dashboard/app/settings/page.tsx` - Configuration settings page
+- `dashboard/components/ProgressCards.tsx` - Real-time metrics display
+- `dashboard/components/FilterBar.tsx` - Filtering controls
+- `dashboard/components/ImageTable.tsx` - Paginated image inventory table
+- `dashboard/components/QualityLegend.tsx` - Quality profile explanations
+- `dashboard/lib/api.ts` - Client-side API wrappers
+- `dashboard/pages/api/summary.ts` - API endpoint for dashboard summary
+- `dashboard/pages/api/images.ts` - API endpoint for image inventory
+- `dashboard/pages/api/dry-run.ts` - API endpoint to trigger dry-run
+- `dashboard/pages/api/optimize.ts` - API endpoint to start optimization
+- `dashboard/pages/api/rollback.ts` - API endpoint for rollback operations
 - `tests/unit/image/processor.test.ts` - Unit tests for image pipeline.
 - `tests/unit/inventory/discover.test.ts` - Inventory discovery tests.
 - `tests/unit/queue/adaptive.test.ts` - Adaptive concurrency logic tests.
@@ -121,16 +126,26 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 5.6 Tests for rewrite & rollback correctness
 
 - [ ] 6.0 Dashboard (Next.js) & API Integration
-  - [x] 6.1 Scaffold Next.js app structure with protected routes
-  - [x] 6.2 Implement auth guard (Supabase session / server component check)
-  - [x] 6.3 Build progress cards (counts, bytes saved, % complete)
-  - [x] 6.4 Implement filter bar (author/date, status)
-  - [x] 6.5 Implement image table (pagination, sorting, status badges)
-  - [x] 6.6 Dry-run report page (charts + export buttons CSV/JSON)
-  - [x] 6.7 Image detail page (original vs optimized metadata & bytes)
-  - [x] 6.8 Settings page (toggle AVIF, schedule window, concurrency cap)
-  - [x] 6.9 API client wrappers with error normalization
-  - [x] 6.10 Basic accessibility & responsive checks
+  - [ ] 6.1 Implement Supabase authentication with session management
+  - [ ] 6.2 Create protected routes with role-based access (admin group)
+  - [ ] 6.3 Build main dashboard page with real-time progress cards (optimized/skipped/bytes saved counts)
+  - [ ] 6.4 Implement image inventory table with pagination, sorting, and status filtering
+  - [ ] 6.5 Add filter bar for author/date ranges and status selection
+  - [ ] 6.6 Create dry-run report page with summary stats, per-image breakdown, and export (CSV/JSON)
+  - [ ] 6.7 Build image detail page showing original vs optimized metadata and savings
+  - [ ] 6.8 Develop settings page for AVIF toggle, quality profiles, concurrency, and scheduling
+  - [ ] 6.9 Implement API client wrappers with error handling and normalization
+  - [ ] 6.10 Add operation triggers (dry-run, optimize, rollback) with confirmation dialogs
+  - [ ] 6.11 Integrate real-time updates via polling for progress indicators
+  - [ ] 6.12 Implement charts for savings analytics and performance metrics
+  - [ ] 6.13 Add bulk actions for image management (retry, reprocess)
+  - [ ] 6.14 Create audit logs view for operation history
+  - [ ] 6.15 Ensure responsive design and accessibility (WCAG 2.1 AA compliance)
+  - [ ] 6.16 Add loading states, error boundaries, and user feedback
+  - [ ] 6.17 Implement search functionality across image inventory
+  - [ ] 6.18 Add preview thumbnails for images in table and detail views
+  - [ ] 6.19 Create navigation with breadcrumbs and consistent layout
+  - [ ] 6.20 Write unit and integration tests for dashboard components and API calls
 
 - [ ] 7.0 Concurrency, Scheduling & Adaptive Controls
   - [x] 7.1 Implement adaptive scaling metric collector (success/error ring buffer)
