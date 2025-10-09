@@ -46,10 +46,12 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
 - `dashboard/components/ProgressCards.tsx` - Real-time metrics display
 - `dashboard/components/FilterBar.tsx` - Filtering controls
 - `dashboard/components/ImageTable.tsx` - Paginated image inventory table
+ - `tests/unit/dashboard/images.api.test.ts` - Unit tests for images API filters (author/date)
 - `dashboard/components/QualityLegend.tsx` - Quality profile explanations
 - `dashboard/lib/api.ts` - Client-side API wrappers
 - `dashboard/pages/api/summary.ts` - API endpoint for dashboard summary
 - `dashboard/pages/api/images.ts` - API endpoint for image inventory
+ - `dashboard/pages/api/dry-run.ts` - API endpoint to fetch/export dry-run artifact
 - `dashboard/pages/api/dry-run.ts` - API endpoint to trigger dry-run
 - `dashboard/pages/api/optimize.ts` - API endpoint to start optimization
 - `dashboard/pages/api/rollback.ts` - API endpoint for rollback operations
@@ -131,8 +133,8 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 6.2 Create protected routes with role-based access (admin group)
   - [x] 6.3 Build main dashboard page with real-time progress cards (optimized/skipped/bytes saved counts)
   - [x] 6.4 Implement image inventory table with pagination, sorting, and status filtering
-  - [ ] 6.5 Add filter bar for author/date ranges and status selection
-  - [ ] 6.6 Create dry-run report page with summary stats, per-image breakdown, and export (CSV/JSON)
+  - [x] 6.5 Add filter bar for author/date ranges and status selection
+  - [x] 6.6 Create dry-run report page with summary stats, per-image breakdown, and export (CSV/JSON)
   - [ ] 6.7 Build image detail page showing original vs optimized metadata and savings
   - [ ] 6.8 Develop settings page for AVIF toggle, quality profiles, concurrency, and scheduling
   - [ ] 6.9 Implement API client wrappers with error handling and normalization
