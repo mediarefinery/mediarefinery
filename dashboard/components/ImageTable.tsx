@@ -15,6 +15,9 @@ export default function ImageTable() {
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [statusFilter, setStatusFilter] = useState('');
+  const [authorFilter, setAuthorFilter] = useState('');
+  const [fromDate, setFromDate] = useState('');
+  const [toDate, setToDate] = useState('');
   const [sortField, setSortField] = useState('discovered_at');
   const [sortOrder, setSortOrder] = useState<'asc'|'desc'>('desc');
   const perPage = 20;
@@ -24,6 +27,9 @@ export default function ImageTable() {
   params.set('page', String(page));
   params.set('per_page', String(perPage));
   if (statusFilter) params.set('status', statusFilter);
+  if (authorFilter) params.set('author', authorFilter);
+  if (fromDate) params.set('from', fromDate);
+  if (toDate) params.set('to', toDate);
   if (sortField) params.set('sort', sortField);
   if (sortOrder) params.set('order', sortOrder);
   const q = (document.getElementById('image-search') as HTMLInputElement | null)?.value;
@@ -51,6 +57,18 @@ export default function ImageTable() {
             <option value="optimized">optimized</option>
             <option value="skipped">skipped</option>
           </select>
+        </label>
+        <label style={{ marginLeft: 12 }}>
+          Author:
+          <input placeholder="author id or name" value={authorFilter} onChange={(e) => { setPage(1); setAuthorFilter(e.target.value); }} style={{ marginLeft: 6 }} />
+        </label>
+        <label style={{ marginLeft: 12 }}>
+          From:
+          <input type="date" value={fromDate} onChange={(e) => { setPage(1); setFromDate(e.target.value); }} style={{ marginLeft: 6 }} />
+        </label>
+        <label style={{ marginLeft: 8 }}>
+          To:
+          <input type="date" value={toDate} onChange={(e) => { setPage(1); setToDate(e.target.value); }} style={{ marginLeft: 6 }} />
         </label>
         <label style={{ marginLeft: 12 }}>
           Sort:
