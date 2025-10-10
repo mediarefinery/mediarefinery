@@ -107,7 +107,9 @@ export default function ImageTable() {
           {images.map((img) => (
             <tr key={img.id}>
               <td style={{ padding: '6px 4px', borderBottom: '1px solid #eee' }}>{img.id}</td>
-              <td style={{ padding: '6px 4px', borderBottom: '1px solid #eee' }}>{img.filename || img.attachment_url}</td>
+              <td style={{ padding: '6px 4px', borderBottom: '1px solid #eee' }}>
+                <a href={`/dashboard/image/${img.id}`}>{img.filename || img.attachment_url}</a>
+              </td>
               <td style={{ padding: '6px 4px', borderBottom: '1px solid #eee' }}>{img.file_size_bytes ?? '-'}</td>
               <td style={{ padding: '6px 4px', borderBottom: '1px solid #eee' }}>{img.status || '-'}</td>
               <td style={{ padding: '6px 4px', borderBottom: '1px solid #eee' }}>{img.discovered_at || '-'}</td>
