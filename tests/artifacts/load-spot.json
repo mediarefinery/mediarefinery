@@ -1,18 +1,18 @@
 {
   "total": 200,
-  "success": 200,
-  "transient": 0,
+  "success": 199,
+  "transient": 1,
   "fatal": 0,
-  "avgLatency": 165.49651003000002,
-  "durationSec": 7.189424547000001,
-  "throughput": 27.818638152820714,
+  "avgLatency": 171.72461231999998,
+  "durationSec": 7.37945592,
+  "throughput": 27.102269078937734,
   "finalConcurrency": 5,
   "stats": {
     "total": 100,
-    "transient": 0,
+    "transient": 1,
     "fatal": 0,
-    "success": 100,
-    "transientRate": 0,
+    "success": 99,
+    "transientRate": 0.01,
     "fatalRate": 0
   }
 }

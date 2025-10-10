@@ -1,11 +1,21 @@
+import { apiFetch } from './fetchClient'
+
 export async function fetchSummary() {
-  const res = await fetch('/api/summary');
-  if (!res.ok) throw new Error('fetchSummary failed');
-  return res.json();
+  return apiFetch('/dashboard/api/summary')
 }
 
 export async function fetchImages(page = 1) {
-  const res = await fetch(`/api/images?page=${page}`);
-  if (!res.ok) throw new Error('fetchImages failed');
-  return res.json();
+  return apiFetch(`/dashboard/api/images?page=${page}`)
+}
+
+export async function triggerDryRun() {
+  return apiFetch('/dashboard/api/dry-run', { method: 'POST' })
+}
+
+export async function triggerOptimize() {
+  return apiFetch('/dashboard/api/optimize', { method: 'POST' })
+}
+
+export async function triggerRollback() {
+  return apiFetch('/dashboard/api/rollback', { method: 'POST' })
 }
