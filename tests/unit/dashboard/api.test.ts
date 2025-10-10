@@ -5,8 +5,8 @@ describe('dashboard api wrapper', () => {
 
   beforeAll(() => {
     globalAny.fetch = jest.fn((url: string) => {
-      if (url.startsWith('/api/summary')) return Promise.resolve({ ok: true, json: async () => ({ optimized: 1 }) });
-      if (url.startsWith('/api/images')) return Promise.resolve({ ok: true, json: async () => ({ images: [] }) });
+      if (url.startsWith('/dashboard/api/summary')) return Promise.resolve({ ok: true, json: async () => ({ optimized: 1 }) });
+      if (url.startsWith('/dashboard/api/images')) return Promise.resolve({ ok: true, json: async () => ({ images: [] }) });
       return Promise.resolve({ ok: false });
     });
   });

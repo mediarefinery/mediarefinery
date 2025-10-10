@@ -88,6 +88,16 @@ export async function upsertConfig(key: string, value: any) {
   return data;
 }
 
+export async function getConfig(key: string) {
+  const sb = getSupabaseClient();
+  const { data, error } = await sb.from('config').select('value').eq('key', key).single();
+  if (error) {
+    // return null if not found or other non-fatal error
+    throw error;
+  }
+  return data?.value ?? null;
+}
+
 // Post rewrites audit table helpers
 export type PostRewriteRecord = {
   id?: number;

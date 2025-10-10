@@ -128,7 +128,6 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 5.6 Tests for rewrite & rollback correctness
 
 - [ ] 6.0 Dashboard (Next.js) & API Integration
-  - [ ] 6.1 Implement Supabase authentication with session management
   - [x] 6.1 Implement Supabase authentication with session management
   - [x] 6.2 Create protected routes with role-based access (admin group)
   - [x] 6.3 Build main dashboard page with real-time progress cards (optimized/skipped/bytes saved counts)
@@ -136,10 +135,10 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 6.5 Add filter bar for author/date ranges and status selection
   - [x] 6.6 Create dry-run report page with summary stats, per-image breakdown, and export (CSV/JSON)
   - [x] 6.7 Build image detail page showing original vs optimized metadata and savings
-  - [ ] 6.8 Develop settings page for AVIF toggle, quality profiles, concurrency, and scheduling
+  - [x] 6.8 Develop settings page for AVIF toggle, quality profiles, concurrency, and scheduling
   - [ ] 6.9 Implement API client wrappers with error handling and normalization
   - [ ] 6.10 Add operation triggers (dry-run, optimize, rollback) with confirmation dialogs
-  - [ ] 6.11 Integrate real-time updates via polling for progress indicators
+  - [x] 6.11 Integrate real-time updates via polling for progress indicators
   - [ ] 6.12 Implement charts for savings analytics and performance metrics
   - [ ] 6.13 Add bulk actions for image management (retry, reprocess)
   - [ ] 6.14 Create audit logs view for operation history
