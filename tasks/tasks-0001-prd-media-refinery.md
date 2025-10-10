@@ -137,6 +137,7 @@ Generated from `0001-prd-media-refinery.md` (Expanded with detailed sub-tasks)
   - [x] 6.7 Build image detail page showing original vs optimized metadata and savings
   - [x] 6.8 Develop settings page for AVIF toggle, quality profiles, concurrency, and scheduling
   - [ ] 6.9 Implement API client wrappers with error handling and normalization
+  - [x] 6.9 Implement API client wrappers with error handling and normalization
   - [ ] 6.10 Add operation triggers (dry-run, optimize, rollback) with confirmation dialogs
   - [x] 6.11 Integrate real-time updates via polling for progress indicators
   - [ ] 6.12 Implement charts for savings analytics and performance metrics
