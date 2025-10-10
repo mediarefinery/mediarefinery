@@ -1,11 +1,11 @@
 {
   "total": 200,
-  "success": 199,
-  "transient": 1,
+  "success": 198,
+  "transient": 2,
   "fatal": 0,
-  "avgLatency": 170.99114869000005,
-  "durationSec": 7.348387494999999,
-  "throughput": 27.216855417067254,
+  "avgLatency": 173.3394021550001,
+  "durationSec": 31.034543848000002,
+  "throughput": 6.444431758995834,
   "finalConcurrency": 5,
   "stats": {
     "total": 100,

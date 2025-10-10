@@ -78,3 +78,14 @@ To complete 10.6 (Operations & rollback guide):
 - Required artifacts: updated `docs/operations-rollback-guide.md`, populated `artifacts/dry-run.json`.
 
 When both documents are updated and artifacts exist, mark 10.5 and 10.6 as done in the PRD tasks file and commit per the completion protocol.
+
+## Progress note: starting dashboard task 6.13
+
+- Started task 6.13: Add bulk actions for image management (retry, reprocess)
+- Files added/modified (one-line summary):
+   - `dashboard/pages/api/bulk-actions.ts` — protected API endpoint to enqueue bulk jobs
+   - `dashboard/components/BulkActions.tsx` — simple UI to trigger bulk optimize for selected IDs
+   - `dashboard/lib/api.ts` — added `triggerBulkAction` client wrapper
+   - `tests/unit/dashboard/bulkActions.api.test.ts` — unit test for bulk-actions API
+
+Note: This is an initial implementation using the in-memory queue; next steps are to wire selection UI into `ImageTable`, persist bulk jobs, and add job-status tracking.

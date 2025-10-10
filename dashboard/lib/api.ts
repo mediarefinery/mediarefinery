@@ -19,3 +19,7 @@ export async function triggerOptimize() {
 export async function triggerRollback() {
   return apiFetch('/dashboard/api/rollback', { method: 'POST' })
 }
+
+export async function triggerBulkAction(action: string, ids: number[]) {
+  return apiFetch('/dashboard/api/bulk-actions', { method: 'POST', body: JSON.stringify({ action, ids }), headers: { 'Content-Type': 'application/json' } })
+}
