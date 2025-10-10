@@ -23,3 +23,13 @@ export async function triggerRollback() {
 export async function triggerBulkAction(action: string, ids: number[]) {
   return apiFetch('/dashboard/api/bulk-actions', { method: 'POST', body: JSON.stringify({ action, ids }), headers: { 'Content-Type': 'application/json' } })
 }
+
+export async function fetchAuditLogs(params: { limit?: number; cursor?: number; action?: string; since?: string } = {}) {
+  const qs = new URLSearchParams()
+  if (params.limit) qs.set('limit', String(params.limit))
+  if (params.cursor) qs.set('cursor', String(params.cursor))
+  if (params.action) qs.set('action', params.action)
+  if (params.since) qs.set('since', params.since)
+  const path = `/dashboard/api/audit-logs?${qs.toString()}`
+  return apiFetch(path)
+}
