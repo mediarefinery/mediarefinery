@@ -122,3 +122,25 @@ export async function getPostRewritesForPost(postId: number) {
   if (error) throw error;
   return data as PostRewriteRecord[];
 }
+
+// Audit logs helper (generic audit table)
+export type AuditLogRecord = {
+  id?: number;
+  action: string;
+  actor?: string | null;
+  target_type?: string | null;
+  target_id?: number | null;
+  details?: Record<string, unknown> | null;
+  created_at?: string | null;
+};
+
+export async function getAuditLogs({ limit = 50, cursor, action, since }: { limit?: number; cursor?: number; action?: string; since?: string }) {
+  const sb = getSupabaseClient();
+  let q = sb.from('audit_logs').select('*').order('id', { ascending: false }).limit(limit);
+  if (cursor) q = q.lt('id', cursor);
+  if (action) q = q.eq('action', action);
+  if (since) q = q.gte('created_at', since);
+  const { data, error } = await q;
+  if (error) throw error;
+  return data as AuditLogRecord[];
+}
